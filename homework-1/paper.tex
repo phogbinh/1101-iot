@@ -1,0 +1,36 @@
+\documentclass[12pt, a4paper, onside]{article}
+\usepackage[affil-it]{authblk} % author institution
+\usepackage[backend=biber]{biblatex}
+
+\addbibresource{reference.bib}
+
+\title{\textbf{Internet of Things: Technologies and Applications -- Homework 1}}
+\author{Tran Phong Binh\thanks{Student ID: 110062421}}
+\affil{Department of Computer Science, National Tsing Hua University}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+Internet of Things (IoT) is one of the most important topics in the modern era of technology. Upon receiving this paper reading assignment, I am thrilled to dig in \cite{5giot} -- an excellent review paper that connects how 5G, my intended Master's thesis research area, would contribute to IoT systems’ development and deployment. As the world around us is becoming more interconnected and smart, the demand for fast and reliable wireless communications is undeniable. However, the current 3G and 4G technologies were way behind in terms of high-speed Internet connectivity and higher data rates to meet such demands, pushing the needs to pursue the novel 5G technologies. The aforementioned survey article focuses on 5G IoT, surveying the system's challenges, architectures, enabling technologies across layers, securities, applications, and most importantly, research gaps and future directions of the field.
+
+The paper begins by listing top seven research challenges on 5G IoT:
+\begin{enumerate}
+  \item $1-10$ GBPS data rate in real-time networks
+  \item Low latency $<10ms$
+  \item High bandwidth and spectrum efficiency
+  \item Low cost
+  \item More connected devices
+  \item Longer battery life
+  \item Reduced energy consumption by almost $90\%$
+\end{enumerate}
+Among these requirements, it should be noted that IoT systems are expected to support over $80$ billion IoT devices within a network, thus 5G IoT architectures are required to have an apparatus to tackle the consequentially formidable interference to deliver enhanced mobile broad-band (eMBB), enhanced machine-type communication (eMTC), and ultra-reliable low-latency communications (URLLC) services. Fortunately, 5G new radio (NR) technologies have been being studied intensively to solve such challenges. In particular, the three modes of narrowband IoT (NB-IoT) -- standalone, in-band, and guard band -- are cognitive by intelligently allocating to users both licensed and unlicensed spectrum bands. With respect to what is achievable in academia and what is implemented in industry, the authors also address the untap issue in enabling massive connectivity and better energy efficiency of deployed IoT communications.
+
+Despite the technological obstacles stated above, the authors are optimistic that once they are solved, 5G IoT would impact our way of life significantly, with applications range from smart factories, smart hospitals, smart transportation, smart agriculture, smart homes and cities to logistics, retail management, and different online services providers. For instance, 5G IoT systems can be leveraged to avoid accidents and similar circumstances by exchanging information among vehicles and perceiving traffic in real-time using miscellaneous radars and sensors, or to monitor energy consumptions and securities of residents. They also hope that with such a huge amount of device connectivity, big data fetched by 5G IoT systems can be put to good use with data analytics to provide even better social services for people around the globe.
+
+From a technical perspective, the article describes in details 5G NR physical layers, including waveforms and frame structures, along with beamformation technology in multiple-input-multiple-output (MIMO) and heterogeneous networks (HetNets) using both mm-wave and uWave technologies. Cyber security, privacy and their preventive measures are also well surveyed by the paper. The paper concludes with an emphasis on the challenges in efficient controlling and management of scalability and introducing new 5G sensors in the IoT networks, as well as network mobility, latency, connectivity, and traffic management. To sum up, I found the paper insightful and informative, and can serve as one of my research guidelines in the upcoming years.
+
+\printbibliography
+
+\end{document}
