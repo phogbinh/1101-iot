@@ -1,0 +1,31 @@
+\documentclass[12pt, a4paper, onside]{article}
+\usepackage[affil-it]{authblk} % author institution
+\usepackage{amsmath} % math
+\usepackage[backend=biber]{biblatex}
+
+\addbibresource{reference.bib}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\renewcommand{\vec}{\mathbf}
+
+\title{\textbf{Internet of Things: Technologies and Applications -- Homework 2}}
+\author{Tran Phong Binh\thanks{Student ID: 110062421}}
+\affil{Department of Computer Science, National Tsing Hua University}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+Within Internet of Things (IoT) wireless sensor networks, energy consumption is of paramount concern, as misuse of energy results in intolerable performance of the overall system, especially under massive connectivity scenarios in the now interconnected world. In the emerge of 6G technology, the authors of \cite{6gstatistical} proposed optimal age-of-information (AoI) based statistical delay and error-rate bounded quality-of-services (QoS) provisioning schemes which efficiently allocate power, as well as user association with unmanned aerial vehicles (UAVs)/ground base station (GBS), and UAVs' flight trajectory to support massive ultra-reliable and low latency communications (mURLLC) over UAV-enabled 6G wireless networks in the finite blocklength regime. The work begins with a range of surveys on the current 6G wireless technology, including delay-bounded QoS theory, mURLLC, and finite blocklength coding (FBC). They argue that it is challenging to meet mURLLC requirements in systems of direct wireless link between end users and the ground base station, as buildings and obstructions significantly decay the already short-reaching 6G data packets. The researchers support the view that such a problem shall be tackled with UAVs, for their development capability, high mobility, and high probability of establishing line-of-sight (LoS) communications, referring to articles claiming UAV is ideal for supporting 6G mURLLC to upper-bound both delay and error-rate. I myself regard this as impractical, because not only do UAVs have to be powered to materialize the architecture, users also have to bear the slow signals caused by relaying. I would prefer to just simply opt for LTE or 5G services in such situations. (I think analyzing and comparing the relayed signal of 6G with direct signal of 5G might as well be one of my paper topics in the future).
+
+Whatever the case is, the authors continue with a brief overview of AoI as the new popular QoS performance metric, which fits nicely to UAV-enabled applications. The introduction is wrapped up with a review of how little has been done in the literature regarding combination of the aforementioned topics, emphasizing the need to present an efficient integration and implementation of the above new techniques for statistical delay and error-rate bounded QoS provisioning over 6G standards. With the main goal set, an optimization problem is formulated with the following objective function:
+\begin{equation}
+\argmax_{\vec{P}, \vec{b}, \vec{q}_{u}}{\sum_{k=1}^{K}{b_{k, u}EC_{k, u}^{\left(l\right)}\left(\theta_{k}\right)}}
+\end{equation}
+Since the function is non-convex due to the coupling of its optimization variables $\vec{P}$, $\vec{b}$ and $\vec{q}_{u}$, the author divide it into two sub-problems: optimal user association and power allocation policy, and optimal UAV trajectory policy. Each problem was relaxed to a convex one and solved accordingly. In specific, the former (a mixed integer disciplined convex program) was solved using a traditional convex optimization algorithm and an exhaustive search method; while the latter was settled by an exhaustive search method such as branch and bound. The two sub-problems are solved iteratively until converged. Simulations are programmed on MATLAB, illustrating the effectiveness of the algorithm. Overall, I find the article a good read on problem formulation for 6G mURLLC in specific and for IoT in general.
+
+\printbibliography
+
+\end{document}
