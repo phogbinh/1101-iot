@@ -1,0 +1,28 @@
+\documentclass[12pt, a4paper, onside]{article}
+\usepackage[affil-it]{authblk} % author institution
+\usepackage[backend=biber]{biblatex}
+
+\addbibresource{reference.bib}
+
+\title{\textbf{Internet of Things: Technologies and Applications -- Homework 4}}
+\author{Tran Phong Binh\thanks{Student ID: 110062421}}
+\affil{Department of Computer Science, National Tsing Hua University}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+Bluetooth Low Energy (BLE) has been being developed as a key technology in the modern era of Internet of Things (IoT). However, the underlying star topology of the wireless communication method constrains it from flourishing in the more and more interconnected hubs of devices, as client devices must be in close proximity with the Bluetooth server to pair and exchange data. To tackle this problem, Bluetooth Special Interest Group (SIG) and the Internet Engineering Task Force (IETF) pioneered to standardize the mesh topology for BLE. The article \cite{blemesh} did an excellent survey on the standardizations proposed by the two organizations, beginning with an introduction to BLE, followed by Bluetooth Mesh and IPv6-based BLE mesh networks (6BLEMesh), and then wrap up with a comparison of the aforementioned specifications.
+
+The mesh topology is preferred to the star counterpart in various IoT scenarios for its provision of path diversity, which guarantees intrinsic robustness i.e. mitigating radio propagation impairments, interference, and device failures. Albeit many proprietary and academic proposals on BLE mesh network have been created, none offers interoperability among products of different manufacturers and developers. Therefore, in 2017, the Bluetooth SIG published the Bluetooth Mesh, with IETF following suit issuing 6BLEMesh, aiming to standardize the specifications for BLE mesh networks.
+
+As I am more interested in the proposal of Bluetooth SIG, and since 6BLEMesh was still under development around the paper's date of publication, I will give a quick review of Bluetooth Mesh's protocol stack in this report, which is made up of seven layers: Bearer layer, Network layer, Lower Transport layer, Upper Transport layer, Access layer, Foundation Model layer, and Model layer. Technically, Bluetooth Mesh networks depend on advertising-based bearers as centers of communication, with devices not operating as advertisers being designated to be special proxy nodes by the Generic Attribute Profile (GATT) bearer. The Network layer is implemented with a controlled flooding mechanism, where message forwarding is executed by relay nodes. This layer also encrypts and authenticates all messages, giving the first tier of protection for the network e.g. preventing node tracking. The Lower Transport layer provides efficient segmentation and reassembly for upper layer data units that cannot be carried by a single Bearer layer data unit. When segmentation is used, the receiving peer endpoint transmits a block acknowledgement, which reports whether the segments of a message have been received or not. The sender selectively retransmits any missing segments. The Upper Transport layer offers three main services: encryption and authentication, support for energy-constrained devices called low power nodes (LPNs), and periodic transmission of network-wide Heartbeat messages (a technique that provide receivers with hopwise distance traversed by the data packet, which they can use to optimize the scope of data message flooding). The Access layer defines a compatibility format for application data. The Foundation Model layer defines models for managing a BLE mesh network, whilst the highest layer in the hierarchy -- the Model layer -- offers a framework for smart home appliances, along with generic device and sensor functionality.
+
+The authors continue by comparing Bluetooth Mesh and 6BLEMesh in terms of seven performance metrics and measures: protocol encapsulation overhead, latency, energy consumption, message transmission count, link corruption robustness, variable topology robustness, and Internet connectivity. Based on my field of research -- 5G resource allocation, I chose to study the first three sections. Assuming the user data payload fits into a single Physical layer data unit, it was found that the minimum protocol encapsulation overhead of Bluetooth Mesh is 29 bytes -- 4 more bytes compared to that of 6BLEMesh. The result of such a small overhead of 6BLEMesh is probably thanks to its header compression, which produces a 7-byte compressed IPv6/UDP header from a 48-byte uncompressed one. In terms of latency, Bluetooth Mesh cannot assure real-time interaction (i.e. latency is below 500 ms) when the destination node is an LPN, while this is possible in 6BLEMesh even when the destination node is a 6LN. By measurements of energy consumptions, the authors also discovered a remarkable result: the operations carried out by a device in 6BLEMesh every connInterval (which include one receive ad one transmit interval) consume less than 25 percent of the energy consumed in a poll action in Bluetooth Mesh (which includes three transmit intervals and one longer receive intervals), concluding that an energy-constrained device consumes less energy in 6BLEMesh than in Bluetooth Mesh for a given latency target.
+
+In conclusion, I consider the article a comprehensive literature on mesh topology for BLE, and I do recommend researchers of interest to conduct a thorough reading of it.
+
+\printbibliography
+
+\end{document}
